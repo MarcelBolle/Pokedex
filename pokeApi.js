@@ -1,13 +1,15 @@
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon";
 
-async function fetchData(path = "") {
+// Holt die Liste mit den Namen und URLs
+async function fetchPokemonList(path = "") {
     let response = await fetch(BASE_URL + path);
-    let responseAsJson = await response.json();
-    return responseAsJson;
+    let data = await response.json();
+    return data.results; 
 }
 
-function loadPokemonList() {
-    console.log("test");
-    fetchData("?limit=15");     // Hier übergeben wir nur noch den Rest des Pfades (die Parameter)
-
+// Holt die Details für ein Pokémon anhand seiner URL
+async function fetchPokemonDetails(url) {
+    let response = await fetch(url);
+    let data = await response.json();
+    return data;
 }
