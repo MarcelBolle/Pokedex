@@ -24,30 +24,29 @@ h1 {
 
 #pokemon-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); 
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     margin-bottom: 40px;
 }
 
-/*Karten*/
 .pokemon-card {
     color: white;
-    border-radius: 15px; 
+    border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.2s ease-in-out; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
     cursor: pointer;
 }
 
 .pokemon-card:hover {
-    transform: translateY(-5px); 
+    transform: translateY(-5px);
 }
 
 .pokemon-card img:not(.type-icon) {
-    width: 100%; 
+    width: 100%;
     max-width: 150px;
     height: auto;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2)); 
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
 }
 
 .poke-id {
@@ -59,10 +58,9 @@ h1 {
 
 .pokemon-card h2 {
     margin: 10px 0;
-    text-transform: capitalize; 
+    text-transform: capitalize;
 }
 
-/*Element*/
 .poke-type {
     display: flex;
     justify-content: center;
@@ -76,10 +74,9 @@ h1 {
     padding: 6px;
     background-color: rgba(255, 255, 255, 0.25);
     border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
-/*Loading Button*/
 #load-more-btn {
     background-color: #ff5350;
     color: white;
@@ -94,4 +91,117 @@ h1 {
 
 #load-more-btn:hover {
     background-color: #d13d3a;
+}
+
+#pokemon-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.modal-stats {
+    margin-top: 20px;
+    text-align: left;
+    background: #f4f6f8;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.modal-stats p {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+#loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-top: 8px solid #ff5350;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.search-container {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#search-input {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: 2px solid #ddd;
+    width: 300px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#search-input:focus {
+    border-color: #ff5350;
+}
+
+#search-btn, #reset-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#search-btn:hover, #reset-btn:hover {
+    background-color: #555;
 }

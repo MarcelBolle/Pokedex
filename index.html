@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,24 +10,32 @@
 
     <script src="script.js"></script>
     <script src="pokeApi.js"></script>
-    
+
 </head>
-<body onload="loadPokemonList()">
-    
+
+<body onload="initPokedex()">
     <div id="app-wrapper">
-    <h1>Mein Pokedex</h1>
-    
-    <div id="pokemon-grid">
-        <div class="pokemon-card">
-            <span class="poke-id">#001</span>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Bisasam">
-            <h2>Bisasam</h2>
-            <div class="poke-type">Pflanze</div>
-        </div>
+        <h1>Mein Pokedex</h1>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Pokémon suchen (z.B. pikachu)...">
+            <button id="search-btn" onclick="searchPokemon()">Suchen</button>
+            <button id="reset-btn" onclick="resetSearch()">X</button>
         </div>
 
-    <button id="load-more-btn">Mehr laden</button>
-</div>
-    
+        <div id="pokemon-grid">
+        </div>
+
+        <div id="loader" class="hidden"></div>
+
+        <button id="load-more-btn" onclick="loadPokemonList()">Mehr laden</button>
+    </div>
+
+    <div id="pokemon-modal" class="hidden">
+        <div class="modal-content" id="modal-content">
+        </div>
+    </div>
+
 </body>
+
 </html>
